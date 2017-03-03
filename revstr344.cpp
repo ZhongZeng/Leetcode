@@ -2,9 +2,21 @@
 #include<iostream>
 using namespace std;
 
-int main(){
+class Solution {
+public:
+    string reverseString(string s) {
+        string str = "";
+        for(int i = s.length(); i>0; i--){
+            str.push_back( s[i-1] );
+        }
+        return str;
+    }
+};
+
+int main(){	
 	string s="abcd";	
 	cout << s[0] << endl;
-	s = s.append( s[2], 1);
-	cout << s << endl;
+	
+	Solution sol;
+	cout << sol.reverseString(s) << endl;
 }
