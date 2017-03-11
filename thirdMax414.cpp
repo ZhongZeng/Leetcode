@@ -1,8 +1,7 @@
 /*
 You are here! 
-Your runtime beats 0.46% of cpp submissions.
-The code is slow, 
-but it can be extended to nth largest number in an array. 
+Your runtime beats 31.85% of cpp submissions.
+The code can be extended to nth largest number in an array. 
 */
 
 #include<vector>
@@ -20,9 +19,9 @@ public:
 		nth.push_back(nums[0]);		
 		
         for (vector<int>::iterator it = nums.begin(); it < nums.end(); it++){
-			cout << *it << "*it" << endl;			
+			//cout << *it << "*it" << endl;			
 			for (vector<int>::iterator iu = nth.begin(); iu < nth.end(); iu++){
-				cout << *iu << "*iu" << endl;
+				//cout << *iu << "*iu" << endl;
 				if ( *it == *iu) {
 					isdone = 1;
 					break;
@@ -36,12 +35,12 @@ public:
 			}	
 			if (nth.size() < 3 &&  isdone == 0 ) {
 				nth.push_back( *it );
-				cout << *it << "push_back"  << endl;
+				//cout << *it << "push_back"  << endl;
 			}
 			isdone = 0;			
         }
         
-		cout << nth[0] << endl << nth[1] << endl << nth[2] << endl << endl;
+		//cout << nth[0] << endl << nth[1] << endl << nth[2] << endl << endl;
         return (nth.size() == nnum) ? *nth.rbegin() : *nth.begin();      
     }	
 };
