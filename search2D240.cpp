@@ -42,7 +42,7 @@ public:
 		return searchSubMatrix(matrix, target, mlo, mhi, nlo, nhi);			
     }
 
-// protected:	
+protected:	
 	bool searchSubMatrix(vector<vector<int>>& matrix, int target, 
 		int mlo0, int mhi0, int nlo0, int nhi0){
 		
