@@ -18,7 +18,7 @@ public:
 		if (m==0) return false;// excluude [[]]
         int lo = 0, hi = n*m, mid;
         while(lo != hi-1){			
-            mid = (lo+hi) / 2;
+            mid = (lo+hi) >> 1;
 			// cout<<"lo "<<lo<<" hi "<<hi<<" mid "<< mid<<endl;
             if ( matrix[mid/m][mid%m] > target ) hi=mid;
             else lo=mid;
