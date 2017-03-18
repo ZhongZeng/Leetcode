@@ -4,7 +4,7 @@ You are here!
 Your runtime beats 41.13% of cpp submissions.
 
 The explanation is of 1 and -1 is important. 
-There are two comparisons in each loop. 
+There is one comparison in each loop. 
 */
 
 #include<vector>
@@ -25,20 +25,19 @@ int guess(int num){
 class Solution {
 public:
     int guessNumber(int n) {
-
 		int lo=1,hi=n+1,mid;
-		while(true){
+		while(lo!=hi-1){
 			mid = ((hi-lo) >>1)+lo;
-			//cout<<lo<<" "<<mid<<" "<<hi<< endl;
-			if (guess(mid)==-1)		hi=mid;
-			else if (guess(mid)==1)lo=mid;
-			else return mid;
+			// cout<<lo<<" "<<mid<<" "<<hi<< endl;
+			if (guess(mid)==-1)	 hi=mid;
+			else				 lo=mid;
 		}
+		return lo;
     }
 };
 
 int main(){
 	Solution s;
-	cout << s.guessNumber(100) << endl;
+	cout << s.guessNumber(10) << endl;
 	return 0;
 }
