@@ -1,7 +1,7 @@
 # Leetcode
 This repository contains my solutions to problems from Leetcode. 
 # Naming convention: 
-question acronym + question number. 
+question acronym + question number, or lc + quantion number + question acronym. 
 # Different parts of code
 In each file, the code of the class of Solution should be submitted on Leetcode. 
 Other code is for my testing purpose. 
