@@ -3,8 +3,10 @@
 /*
 Leetcode # 160. Intersection of Two Linked Lists
 You are here! 
+Your runtime beats 19.21% of cpp submissions.
 Your runtime beats 24.41% of cpp submissions.
 Your runtime beats 41.25% of cpp submissions.
+Your runtime beats 59.22% of cpp submissions.
 Your runtime beats 88.88% of cpp submissions.
 "Simple C++ solution (5 lines)" is great. Prove its correctness.
 */
