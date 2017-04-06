@@ -1,4 +1,9 @@
-// Leetcode 412. Fizz Buzz
+/* 
+Leetcode 412. Fizz Buzz
+You are here! 
+Your runtime beats 12.84% of cpp submissions. 6 ms
+*/
+
 #include<iostream>
 #include<vector>
 #include<string>
