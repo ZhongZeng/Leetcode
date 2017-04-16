@@ -15,11 +15,11 @@ public:
         cout<<findInsection(A, C, E, G)<<endl;
         cout<<findInsection(B, D, F, H)<<endl;
         */
-        return (D-B)*(C-A)+(H-F)*(G-E)-findInsection(A, C, E, G)*findInsection(B, D, F, H);
+        return (D-B)*(C-A)+(H-F)*(G-E)-findIntersection(A, C, E, G)*findIntersection(B, D, F, H);
     }
     
-    int findInsection(int A, int C, int E, int G){
-    //find the interval of segment [A, C] and [E, G]
+    int findIntersection(int A, int C, int E, int G){
+    //find the intersection of segment [A, C] and [E, G]
         if(G<A||C<E) return 0; 
         else return min(C, G)-max(A,E);
     }
