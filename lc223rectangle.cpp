@@ -3,6 +3,7 @@
 Leetcode 223 findInterval(A, C, E, G)
 You are here! 
 Your runtime beats 22.91% of cpp submissions. 22 ms
+Your runtime beats 53.82% of cpp submissions. 16 ms
 */
 
 
