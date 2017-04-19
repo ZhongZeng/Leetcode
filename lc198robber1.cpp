@@ -2,6 +2,11 @@
 
 /*
 Leetcode 198. House Robber
+Similar Problems:  
+ (M) Maximum Product Subarray (M) House Robber II 
+ (E) Paint House (E) Paint Fence (M) House Robber III
+
+
 You are here! 
 Your runtime beats 2.68% of cpp submissions. 3 ms
 */
