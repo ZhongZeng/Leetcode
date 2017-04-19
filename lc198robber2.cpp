@@ -8,6 +8,7 @@ Similar Problems:
 
 You are here! 
 Your runtime beats 68.76% of cpp submissions. 0 ms
+Your runtime beats 2.68% of cpp submissions. 3 ms
 
 This solution is very close to my solution 1.
 The only difference is the use of temp. 
@@ -28,7 +29,7 @@ public:
 			maxsd = temp;
             // cout<<maxlst<<" "<<maxsd<<endl;
         }
-        return max(maxlst, maxsd);
+        return maxlst;
     }
 };
 

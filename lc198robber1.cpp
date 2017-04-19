@@ -24,7 +24,7 @@ public:
 			maxlst = max(temp+*it, maxlst);
             // cout<<maxlst<<" "<<maxsd<<endl;
         }
-        return max(maxlst, maxsd);
+        return maxlst;
     }
 };
 
