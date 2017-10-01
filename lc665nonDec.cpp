@@ -8,7 +8,7 @@ Array
 
 Next challenges: Word Ladder IIFind Peak ElementLonely Pixel II
 
-
+Runtime: 33 ms
 
 You are here! 
 Your runtime beats 90.64 % of cpp submissions.
