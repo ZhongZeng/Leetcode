@@ -17,6 +17,8 @@ Runtime: 139 ms
 You are here! 
 Your runtime beats 74.58 % of cpp submissions.
 
+DFS & BFS can also do this without checking every cell 
+
 */
 
 class Solution {
