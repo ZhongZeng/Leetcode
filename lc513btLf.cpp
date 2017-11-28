@@ -14,6 +14,8 @@ Test Case:
 
 Runtime: 9 ms
 Your runtime beats 61.65 % of cpp submissions.
+Runtime: 12 ms
+Your runtime beats 36.71 % of cpp submissions.
 
 */
 
