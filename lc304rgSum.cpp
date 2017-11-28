@@ -29,6 +29,8 @@ class NumMatrix {
 public:
     // inspired by a glance at solution
     // The trick is that sumRegion will be called 
+	// O(n) time&space @ construction
+	// O(1) time&space @ function call 
     int r, c;
     vector<vector<int>> mx;
     
