@@ -24,6 +24,7 @@ public:
     vector<int> nextGreaterElement(vector<int>& findNums, vector<int>& nums) {
         // inspired by the words unordered_map and stack from others' solution
         // O(n) time, O(n) space
+		// nums1’s elements are subset of nums2!
         stack<int> s;
         unordered_map<int, int> unmap; // element, its first greater element to the right
         vector<int> v;
