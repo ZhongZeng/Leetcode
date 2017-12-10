@@ -13,6 +13,8 @@ Logger Rate Limiter, Smallest Range
 Test Case:
 [73,74,75,71,69,72,76,73]
 
+Runtime: 219 ms
+
 */
 
 class Solution {
