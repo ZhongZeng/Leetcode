@@ -30,7 +30,7 @@ Your runtime beats 23.68 % of cpp submissions.
 class Solution {
 public:
     int eraseOverlapIntervals(vector<Interval>& intervals) {
-        // sort; classic greedy problem 
+        // sort(merge sort used here, heap sort can also do it); classic greedy problem 
         // O(nlg(n)) time 
         if(intervals.size()<2)   return 0;
         int num=0, ed;
