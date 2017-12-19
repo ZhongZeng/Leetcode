@@ -26,6 +26,7 @@ Your runtime beats 83.85 % of cpp submissions.
 class Solution {
 public:
     string predictPartyVictory(string senate) {
+		// greedy, 2-pointer 
         int r=senate[0]!='D'?1:-1;
         for(string::iterator it=senate.begin()+1; it<senate.end(); it++){
             if(*it!='D'){ // 'R'
