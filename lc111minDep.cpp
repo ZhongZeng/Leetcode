@@ -42,7 +42,7 @@ public:
         TreeNode * tn=root;
         int d=0, len=0;
         qt.push(tn);
-        qd.push(d);
+        qd.push(d);// d: depth of current node 
             
         while( qt.empty()!=true ){                        
             tn = qt.front();
