@@ -22,7 +22,7 @@ public:
     int kthGrammar(int N, int K) {
         // Binary Search
         int e=0;
-        vector<int> d, r;
+        vector<int> r;
         
         K=K-1;
         for(int i=1; i<N; i++){
