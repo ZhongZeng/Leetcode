@@ -23,7 +23,7 @@ public:
         // O(m*n) time
         if(board.size()<1||board[0].size()<1)   return ;
         int r=board.size(), c=board[0].size(); 
-        // first fill in all unsurrounded areas of 'O'
+        // first fill in all unsurrounded areas of 'O' with 'P' 
         for(int i=0; i<board.size(); i++){
             if(board[i][0]=='O')    findSur( i, 0, board);
         }
