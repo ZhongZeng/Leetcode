@@ -65,3 +65,29 @@ public:
     }
 };
 */
+
+/*
+// Runtime: 4 ms
+// Your runtime beats 0.00 % of cpp submissions. which is with in majority 
+class Solution {
+public:
+    vector<string> generatePossibleNextMoves(string s) {
+        vector<string> vs;
+        string t;
+        
+        for(int i=0; i<s.size(); i++){
+            if(s[i]!='-'){
+                while(++i<s.size()&&s[i]!='-'){
+                    t.clear();
+                    for(int j=0; j<s.size(); j++)   t.push_back(s[j]);
+                    t[i]='-';
+                    t[i-1]='-';                    
+                    vs.push_back(t);
+                }                
+            }
+        }
+        
+        return vs;
+    }
+};
+*/
