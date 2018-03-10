@@ -16,6 +16,9 @@ Test Cases:
 100
 1804289383
 
+Runtime: 24 ms
+Your runtime beats 65.09 % of cpp submissions.
+
 */
 
 class Solution {
