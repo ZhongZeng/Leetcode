@@ -4,23 +4,70 @@
 Leetcode 581. Shortest Unsorted Continuous Subarray
 
 Tags: Array
-Next challenges: (H) Maximal Rectangle(M) Construct Binary Tree from Preorder and Inorder Traversal(M) Combination Sum III
+Next challenges: 
+(H) Maximal Rectangle(M) Construct Binary Tree from Preorder and Inorder Traversal(M) Combination Sum III
 
-You are here! 
-Your runtime beats 53.92 % of cpp submissions.
-Runtime: 49 ms
+Next challenges: 
+Word Search, Maximum Sum of 3 Non-Overlapping Subarrays, Find K-th Smallest Pair Distance
+
 
 Test Cases: 
 [2,6,4,8,10,9,15,16,17,20,19]
-10
 [1,2,3,4,5]
-0
 [2,3,3,2,4]
-3
+[2,6,4,8,10,9,15]
+[1,2,4,3,5,6]
+[1,2,3,4,5,6]
+[1,3,2,2,2]
+[4,3,1]
+[1,3,2,3,3]
+[2,5,4,3,1]
 
 */
 
+// Solution 1: Your runtime beats 61.58 % of cpp submissions. Runtime: 44 ms
+class Solution {
+public:
+    int findUnsortedSubarray(vector<int>& nums) {
+        // O(n) time, O(1) space 
+        // ascending order here means <=
+        int b, e, i, mx, mn, ba, ea;
+        
+        // find 1st unsorted element 
+        for( i=1; i<nums.size(); i++){
+            if(nums[i]<nums[i-1]){
+                b=i-1;
+                break;
+            }
+        }
+        if(i==nums.size())  return 0;
+        
+        // find last unsorted element 
+        for( i=nums.size()-1; 0<i; i--){
+            if(nums[i]<nums[i-1]){
+                e=i;
+                break;
+            }
+        }
+        
+        // find max & min elements in unsorted array 
+        mx=nums[b];//b!=e
+        mn=nums[e];
+        for(i=b; i<=e; i++){
+            if(nums[i]<mn)  mn=nums[i];
+            else if(mx<nums[i]) mx=nums[i];
+        }
+        
+        // find begin & end of subarray 
+        for(ba=0; nums[ba]<=mn; ba++){}
+        for(ea=nums.size()-1; mx<=nums[ea]; ea--){}
+        // cout<<mn<<" "<<mx<<"; "<<ba<<" "<<ea<<endl;
+        
+        return ea-ba+1;
+    }
+};
 
+// Solution 2: Your runtime beats 53.92 % of cpp submissions. Runtime: 49 ms 
 class Solution {
 public:
     int findUnsortedSubarray(vector<int>& nums) {
@@ -59,6 +106,9 @@ public:
         return (le-nums.begin())-(nums.rend()-fe)+2;
     }
 };
+
+
+
 
 /*
 //WRONG solution
