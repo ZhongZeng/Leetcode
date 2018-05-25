@@ -27,7 +27,7 @@ Your runtime beats 36.19 % of cpp submissions.
 class Solution {
 public:
     int reversePairs(vector<int>& nums) {
-		// divide&conquer, similiar to merge sort; O(n*log(n)) time, O(1) space 
+		// divide&conquer, similiar to merge sort; O(n*log(n)) time, O(n) space 
         if(nums.size()<2)   return 0;
         int rt=0, b=0, e=nums.size(), m=b+(e-b)/2;
 		
