@@ -19,8 +19,8 @@ Test Cases:
 
 Next challenges: Median of Two Sorted Arrays, Find K-th Smallest Pair Distance, My Calendar I
 
-Runtime: 3 ms
-Your runtime beats 62.85 % of cpp submissions.
+Runtime: 4 ms
+Your runtime beats 100 % of cpp submissions.
 
 */
 
