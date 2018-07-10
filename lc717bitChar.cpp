@@ -17,6 +17,8 @@ Test Cases:
 [1,1,0,0,1,1,0]
 [1,0,0,1,1,0]
 
+Next challenges: Median of Two Sorted Arrays, Find K-th Smallest Pair Distance, My Calendar I
+
 Runtime: 3 ms
 Your runtime beats 62.85 % of cpp submissions.
 
@@ -32,8 +34,8 @@ public:
         // DP; O(n) time; could avoid travsing all elements
         if(bits.size()<2)   return true;
         for(int i=bits.size()-2; -1<i; i--){
-            if(0<bits[i]<1){// ==0
-                return (bits.size()-i-2)%2!=1;
+            if(bits[i]<1){// ==0 [0:i] is&must be a slice 
+                return (bits.size()-i)%2!=1;// bits.size()-i-2 to be exact 
             }
         }
         return bits.size()%2!=0;
