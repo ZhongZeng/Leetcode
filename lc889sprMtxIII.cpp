@@ -9,9 +9,15 @@ Math
 
 Test Cases:
 1
-4
-0
-0
+2
+2
+6
+3
+14
+1
+3
+2
+6
 
 Runtime: 40 ms
 
