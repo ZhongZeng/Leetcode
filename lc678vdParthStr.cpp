@@ -26,6 +26,7 @@ class Solution {
 public:
     bool checkValidString(string s) {
         // inspired by O(1) space&O(n) time in Discuss; O(n) time, 2 passes, O(1) space
+		// '(' must come before ')', where doesn't matter 
         int p=0, a=0;
         
         for( int i=0; i<s.size(); i++){
