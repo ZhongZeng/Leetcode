@@ -1,7 +1,7 @@
 
 
 /*
-Leetcode 744. Network Delay Time
+Leetcode 743. Network Delay Time
 
 Related Topics 
 Heap, Depth-first Search,Breadth-first Search, Graph
