@@ -1,4 +1,120 @@
 
+/*
+Leetcode 23. Merge k Sorted Lists
+
+Companies   
+Amazon, Facebook, Google, Microsoft, Apple, Uber, Alibaba, Tencent, Bloomberg, Paypal, Dropbox, Oracle 
+Related Topics 
+Linked List, Divide and Conquer, Heap 
+Similar Questions 
+Merge Two Sorted Lists, Ugly Number II
+
+Test Cases:
+[[1,4,5],[1,3,4],[2,6]]
+[[1,4,5],[1,3,4],[2,6],[]]
+
+Next challenges: Expression Add Operators, 
+Minimum Number of Refueling Stops, Valid Permutations for DI Sequence
+
+Runtime: 16 ms
+Your runtime beats 99.98 % of cpp submissions.
+
+*/
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+// heap, linkedin list, similiar to merge k sorted array 
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        // O(n*log(k)) time 
+        vector<ListNode*> vc;
+        for( int i=0; i<lists.size(); i++){
+            if(lists[i]!=NULL)  pushHp( vc, lists[i]);
+        }
+        if(vc.size()<1) return NULL;
+        
+        ListNode * head=vc[0], * ln=head, * lm;
+        if(vc[0]->next!=NULL){
+            lm=vc[0]->next;
+            popHp(vc);
+            pushHp(vc,lm);
+        }else{
+            popHp(vc);
+        }
+        
+        while(!vc.empty()){
+            ln->next=vc[0];
+            ln=vc[0];
+            if(vc[0]->next!=NULL){
+                lm=vc[0]->next;
+                popHp(vc);
+                pushHp(vc,lm);
+            }else{
+                popHp(vc);
+            }
+        }
+        
+        return head;
+    }
+    
+    void pushHp( vector<ListNode*>& vc, ListNode * nd){// min heap 
+        int i=vc.size();
+        vc.push_back(nd);
+        
+        while(0<i){
+            if(vc[i]->val<vc[(i-1)/2]->val){
+                nd=vc[i];
+                vc[i]=vc[(i-1)/2];
+                vc[(i-1)/2]=nd;
+                i=(i-1)/2;
+            }else{
+                break;
+            }
+        }
+        
+        return ;
+    }
+
+    void popHp( vector<ListNode*>& vc){
+        int i=0;
+        ListNode * nd;
+        vc[0]=vc.back();
+        vc.pop_back();
+        
+        while(2*i+2<vc.size()){
+            if(vc[2*i+2]->val<vc[i]->val&&vc[2*i+2]->val<vc[2*i+1]->val){
+                nd=vc[i];
+                vc[i]=vc[2*i+2];
+                vc[2*i+2]=nd;
+                i=2*i+2;
+            }else if(vc[2*i+1]->val<vc[i]->val){
+                nd=vc[i];
+                vc[i]=vc[2*i+1];
+                vc[2*i+1]=nd;
+                i=2*i+1;
+            }else{
+                break;
+            }
+        }
+        
+        while(2*i+1<vc.size()&&vc[2*i+1]->val<vc[i]->val){
+            nd=vc[i];
+            vc[i]=vc[2*i+1];
+            vc[2*i+1]=nd;
+        }
+        
+        return ;
+    }
+};
+
+
 
 /*
 Leetcode 23. Merge k Sorted Lists
@@ -114,4 +230,5 @@ public:
         return ;
     }	
 };
+
 
