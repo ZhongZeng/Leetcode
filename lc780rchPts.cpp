@@ -25,10 +25,42 @@ Test Cases:
 1
 
 189 / 189 test cases passed.
-Runtime: 6 ms
+
+Runtime: 4 ms
+Your runtime beats 52.74 % of cpp submissions.
 
 */
 
+class Solution {
+public:
+    bool reachingPoints(int sx, int sy, int tx, int ty) {
+        // recursion, sx, sy, tx, ty in [1, 10^9] 
+        if(tx<sx||ty<sy){
+			return false;
+		}else{// sx<=tx&&sy<=ty 
+            if(sx==tx){
+                if(sy==ty)  return true;
+                else    return (sy-ty)%tx==0;// ty is reduceable 
+            }else{
+                if(sy==ty){// tx is reduceable 
+                    return (sx-tx)%ty==0;
+                }else{
+                    if(tx<ty){// ty is reduceable 
+                        if(ty%tx==sx%tx)	return reachingPoints( sx, sy, tx, sy);
+                        else	return reachingPoints( sx, sy, tx, ty%tx);
+                    }else if(ty<tx){// tx is reduceable 
+                        if(tx%ty==sy%ty)	return reachingPoints( sx, sy, sx, ty);
+                        else	return reachingPoints( sx, sy, tx%ty, ty);
+                    }else{
+                        return sx==sy&&sx==tx;
+                    }
+                }
+            }
+		}
+    }
+};
+
+// Runtime: 6 ms
 class Solution {
 public:
     bool reachingPoints(int sx, int sy, int tx, int ty) {
