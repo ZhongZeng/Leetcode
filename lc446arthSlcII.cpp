@@ -16,8 +16,48 @@ Test Cases:
 [2,2,3,4]
 [0,2000000000,-294967296]
 []
+[2147483638,2147483639,2147483640,2147483641,2147483642,2147483643,2147483644,2147483645,2147483646,2147483647,-2147483648,-2147483647,-2147483646,-2147483645,-2147483644,-2147483643,-2147483642,-2147483641,-2147483640,-2147483639]
+
+Runtime: 320 ms, faster than 66.97% of C++ online submissions for Arithmetic Slices II - Subsequence.
 
 */
+
+
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& A) {
+        // DP, O(n*n) time 
+        int n, sum=0;
+        long d;
+        unordered_map<long,int> vm;
+        vector<unordered_map<long,int>> vu(1,vm);// ending @ vu[i]: distance, # of sequence
+        unordered_map<long,int>::iterator umi;
+        
+        for( int i=1; i<A.size(); i++){
+            unordered_map<long,int> um;
+            for( int j=0; j<i; j++){
+                d=(long)A[i]-A[j];
+                if(INT_MAX<d||d<INT_MIN)    continue;
+                
+                umi=vu[j].find(d);
+                if(umi!=vu[j].end()){
+                    sum+=umi->second;
+                    n=umi->second+1;
+                }else{
+                    n=1;
+                }
+                
+                umi=um.find(d);
+                if(umi!=vu[i].end())    umi->second+=n;
+                else    um.emplace(d,n);
+            }
+            vu.push_back(um);
+        }
+        
+        return sum;
+    }
+};
+
 
 // Runtime: 647 ms
 // Your runtime beats 30.23 % of cpp submissions.
