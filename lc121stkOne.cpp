@@ -19,11 +19,31 @@ Test Cases:
 [5,6,2,4,1]
 []
 
-Runtime: 9 ms
-Your runtime beats 10.54 % of cpp submissions.
+Runtime: 4 ms, faster than 99.51% of C++ online submissions for Best Time to Buy and Sell Stock.
 
 */
 
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        // O(n) time, O(1) space
+        if(prices.size()<2) return 0;
+        int profit=0, low=prices[0];
+        
+        for( int i=1; i<prices.size(); i++){
+            if(prices[i]<low){
+                low=prices[i];
+            }else{
+                if(profit<prices[i]-low)    profit=prices[i]-low;
+            }
+        }
+        
+        return profit;
+    }
+};
+
+// Runtime: 9 ms
+// Your runtime beats 10.54 % of cpp submissions.
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
