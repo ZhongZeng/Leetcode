@@ -16,9 +16,6 @@ Test Cases:
 Next challenges: Expression Add Operators, 
 Minimum Number of Refueling Stops, Valid Permutations for DI Sequence
 
-Runtime: 16 ms
-Your runtime beats 99.98 % of cpp submissions.
-
 */
 
 /**
@@ -29,6 +26,39 @@ Your runtime beats 99.98 % of cpp submissions.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+ 
+// Runtime: 16 ms	Your runtime beats 99.98 % of cpp submissions.
+struct greaterThan{
+	bool operator()(ListNode* ls1, ListNode* ls2){
+		return ls1->val > ls2->val;
+	}
+};
+
+class Solution {
+public:
+ListNode* mergeKLists(vector<ListNode*>& lists) {
+	ListNode * rt=NULL, * ls=new ListNode(0), * lt;
+	priority_queue<ListNode*,vector<ListNode*>,greaterThan> hp;
+	
+	for( int i=0; i<lists.size(); i++){
+		if(lists[i]!=NULL)	hp.push(lists[i]);
+	}
+	if(!hp.empty())	rt=hp.top();
+	
+	while(!hp.empty()){
+		ls->next=hp.top();
+		ls=hp.top();
+		
+		lt=hp.top()->next;
+		hp.pop();
+		if(lt!=NULL)	hp.push(lt);
+	}
+	
+	return rt;
+}
+};
+
+// Runtime: 16 ms	Your runtime beats 99.74 % of cpp submissions. 
 // heap, linkedin list, similiar to merge k sorted array 
 class Solution {
 public:
