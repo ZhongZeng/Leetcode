@@ -27,6 +27,26 @@ Your runtime beats 100.00 % of cpp submissions.
 // Forward declaration of the read4 API.
 int read4(char *buf);
 
+
+class Solution {
+public:
+    /**
+     * @param buf Destination buffer
+     * @param n   Maximum number of characters to read
+     * @return    The number of characters read
+     */
+    int read(char *buf, int n) {
+        int i=0, t;
+        while( i<n ){
+            t=read4(buf);
+            buf+=t;
+            i+=t;
+            if(t<4) break;// buf length<=n
+        }
+        return i<n?i:n;// n < buf length
+    }
+};
+
 class Solution {
 public:
     /**
