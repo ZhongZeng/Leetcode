@@ -1,6 +1,4 @@
 
-
-
 /*
 Leetcode 29. Divide Two Integers
 
@@ -32,13 +30,58 @@ Test Cases:
 2147483647
 3
 
-Runtime: 32 ms
-Your runtime beats 7.76 % of cpp submissions.
-Runtime: 25 ms
-Your runtime beats 18.48 % of cpp submissions.
+Runtime: 16 ms, faster than 47.70% of C++ online submissions for Divide Two Integers.
 
 */
 
+// O(1) space is possible, if we calculate largest vc first and use >>1 (divided by 2) each time,
+// or just use <<1 (multiplied by the exponential of 2), in trade of of linear time 
+
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        // O(n) time&space, n=log(dividend/divisor)<=32, solution without long 
+        // -7,-3: 2; -7,3:-2; 7,-3:-2
+        if(dividend==INT_MIN&&divisor==-1)   return INT_MAX;// the only result overflow
+        
+        // use negative to avoid overflow 
+        if(0<dividend){
+            if(0<divisor)   return divideNegative(-dividend,-divisor);
+            else    return -divideNegative(-dividend,divisor);
+        }else{
+            if(0<divisor)   return -divideNegative(dividend,-divisor);
+            else    return divideNegative(dividend,divisor);
+        }
+        
+        return 0;
+    }
+    
+protected:    
+    int divideNegative(int dividend, int divisor){// both input are non-positive 
+        int q=0;
+        vector<int> vb={-1}, vc={divisor};
+        
+        // generate vector of int 
+        while(dividend-vc.back()<=vc.back()){// avoid overflow 
+            vb.push_back(vb.back()+vb.back());
+            vc.push_back(vc.back()+vc.back());
+        }
+        
+        // binary conversion 
+        for( int i=vc.size()-1; -1<i&&dividend<0; i--){
+            if(dividend<=vc[i]){
+                dividend-=vc[i];
+                q+=vb[i];
+            }
+        }
+        
+        return -q;        
+    }
+};
+
+/*
+// Runtime: 32 ms	Your runtime beats 7.76 % of cpp submissions.
+// Runtime: 25 ms	Your runtime beats 18.48 % of cpp submissions.
 class Solution {
 public:
     int divide(int dividend, int divisor) {
@@ -90,3 +133,4 @@ public:
         return d;
     }
 };
+*/
