@@ -1,6 +1,5 @@
 
 /*
-
 Leetcode 670. Maximum Swap
 
 Related Topics 
@@ -11,6 +10,8 @@ Create Maximum Number
 Next challenges: Create Maximum Number
 
 Test Cases:
+10
+9
 1993
 98368
 2736
@@ -18,17 +19,39 @@ Test Cases:
 543232121
 543232721
 
-Runtime: 6 ms
-You are here! 
-Your runtime beats 0.54 % of cpp submissions.
-
-Runtime: 3 ms
-You are here! 
-Your runtime beats 12.54 % of cpp submissions. 
+Runtime: 0 ms, faster than 100.00% of C++ online submissions for Maximum Swap.
 
 */
 
+class Solution {
+public:
+    int maximumSwap(int num) {
+        // O(n) time&space (can be optimized to O(1)space), array, greedy 
+        int rt=0, mi=0, s1=0, s2=0;
+        vector<int> vc;
+        for( ; 0<num; num/=10)  vc.push_back(num%10);
+        
+        for( int i=1; i<vc.size(); i++){// swap largest value w/ most siginificant digit
+            if(vc[i]<vc[mi]){
+                s1=mi;
+                s2=i;
+            }else if(vc[mi]<vc[i]){
+                mi=i;
+            }
+        }
+        
+        mi=vc[s1];
+        vc[s1]=vc[s2];
+        vc[s2]=mi;
+        
+        for( int i=vc.size()-1; -1<i; i--) rt=rt*10+vc[i];
+        
+        return rt;
+    }
+};
 
+// Runtime: 6 ms	Your runtime beats 0.54 % of cpp submissions.
+// Runtime: 3 ms	Your runtime beats 12.54 % of cpp submissions. 
 class Solution {
 public:
     int maximumSwap(int num) {
