@@ -2,13 +2,9 @@
 /*
 Leetcode 560. Subarray Sum Equals K
 
-Tags: Array, Map
+Tags: Array, Map / Hash Table
 Similar Problems: (E) Two Sum (M) Continuous Subarray Sum
 Next challenges: (M) Continuous Subarray Sum
-
-You are here! 
-Your runtime beats 83.51 % of cpp submissions.
-Runtime: 35 ms
 
 Test Cases:
 [-1,-1,1]
@@ -18,6 +14,31 @@ Test Cases:
 
 */
 
+// Runtime: 20 ms	Your runtime beats 99.20 % of cpp submissions.
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+		// DP, hash table, array, O(n) time&space 
+		int rt=0, sum=0;
+        unordered_map<int,int> um;
+		unordered_map<int,int>::iterator umi;
+		um.emplace(0,1);
+		
+		for( int i=0; i<nums.size(); i++){
+			sum+=nums[i];
+			umi=um.find(sum-k);
+			if(umi!=um.end())	rt+=umi->second;
+			
+			umi=um.find(sum); // add current element a/t find, since it would be empty subarray
+			if(umi!=um.end())	umi->second+=1;
+			else	um.emplace(sum,1);
+		}
+		
+		return rt;
+    }
+};
+
+// Runtime: 35 ms	Your runtime beats 83.51 % of cpp submissions.
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
