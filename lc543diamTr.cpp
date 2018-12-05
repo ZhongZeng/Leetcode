@@ -15,10 +15,6 @@ Test Cases:
 [1,2,3]
 [1]
 [1,2,3,null,3,null,4,5]
-
-Runtime: 9 ms
-Your runtime beats 40.97 % of cpp submissions.
-
 */
 
 
@@ -31,6 +27,34 @@ Your runtime beats 40.97 % of cpp submissions.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+ 
+// Runtime: 4 ms 
+// Your runtime beats 100.00 % of cpp submissions.
+class Solution {
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+		// DFS, all pathes go through a node as the parent 
+        int mx=1;
+		
+		dfs( root, mx); 
+		
+		return mx-1;
+    }
+	
+protected:	
+	int dfs( TreeNode* tr, int& mx){// post-order DFS; return longest length from tr to leaf 
+		if(!tr)	return 0;
+	
+		int l=dfs(tr->left,mx), r=dfs(tr->right,mx);
+		
+		if(mx<l+r+1)	mx=l+r+1;
+		
+		return l<r?r+1:l+1;
+	}
+};
+
+
+// Runtime: 9 ms	Your runtime beats 40.97 % of cpp submissions.
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
