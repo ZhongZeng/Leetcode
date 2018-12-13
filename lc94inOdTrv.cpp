@@ -19,10 +19,6 @@ Inorder Successor in BST
 Test Cases:
 [1,null,2,3]
 [1,null,2,3,4,5,null,8]
-
-Runtime: 3 ms
-Your runtime beats 0.51 % of cpp submissions. 
-
 */
 
 
@@ -35,6 +31,40 @@ Your runtime beats 0.51 % of cpp submissions.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+// Runtime: 0 ms
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+		// get inspired from Two Sum-Input as BST; think about how iteration approach work 
+		vector<int> rt;
+        vector<TreeNode*> vt;
+		TreeNode * tr;
+		
+		for( tr=root; tr; tr=tr->left)	vt.push_back(tr);// make sure all left children visited before the parent 
+		
+		while(!vt.empty()){
+			rt.push_back(vt.back()->val);
+			tr=vt.back();
+			vt.pop_back();
+			
+			for( tr=tr->right; tr; tr=tr->left)	vt.push_back(tr);// only visit right child after the parent is visited 
+		}
+		
+		return rt;
+    }
+};
+
+// Runtime: 3 ms	Your runtime beats 0.51 % of cpp submissions. 
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
