@@ -3,8 +3,7 @@
 
 Leetcode 128. Longest Consecutive Sequence
 
-Runtime: 13 ms
-Your runtime beats 16.22 % of cpp submissions.
+
 
 Related Topics 
 Array, Union Find
@@ -20,6 +19,37 @@ Test Cases:
 
 */
 
+// Runtime: 4 ms, faster than 100.00% of C++ online submissions for Longest Consecutive Sequence.
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+		// O(n) time, assuming no duplicates in nums 
+        unordered_map<int,int> us;// key, visited 
+		unordered_map<int,int>::iterator usi, usj;
+		int mx=0, mt;
+		
+		for( int i=0; i<nums.size(); i++)	us.emplace(nums[i],0);
+		
+		for( usi=us.begin(); usi!=us.end(); usi++){
+			if(usi->second==0){
+				mt=1;
+				for( usj=us.find(1+usi->first); usj!=us.end(); mt++){
+					usj->second=1;// usj->second==0 guranteed 
+					usj=us.find(1+usj->first);
+				}
+				for( usj=us.find(-1+usi->first); usj!=us.end(); mt++){
+					usj->second=1;
+					usj=us.find(-1+usj->first);
+				}
+				if(mx<mt)	mx=mt;
+			}
+		}
+		
+		return mx;
+    }
+};
+
+// Runtime: 13 ms	Your runtime beats 16.22 % of cpp submissions.
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
