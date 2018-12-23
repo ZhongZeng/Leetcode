@@ -11,13 +11,10 @@ Add Two Numbers
 Test Cases:
 [8,1,4,3]
 [3,6,4]
-
 [9,1,4,3]
 [1,3,6,4]
-
-Runtime: 62 ms
-You are here! 
-Your runtime beats 15.54 % of cpp submissions.
+[0]
+[]
 
 */
 
@@ -29,6 +26,64 @@ Your runtime beats 15.54 % of cpp submissions.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+// Runtime: 28 ms, faster than 98.10% of C++ online submissions for Add Two Numbers II.
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+		// O(n) time, O(1) space except output; modify output 
+        int len1=listLength(l1), len2=listLength(l2), i, ad;
+        if(len2<len1)   return addTwoNumbers(l2, l1);
+		ListNode * rt=new ListNode(0), * ll;
+		
+		for( i=0, ll=rt; i<len2-len1; i++){// len1<=len2 
+			ListNode * ln0=new ListNode(l2->val);
+            l2=l2->next;
+			ll->next=ln0;
+			ll=ln0;
+        }
+		for( ; i<len2; i++){// add values from 2 lists 
+			ListNode * ln0=new ListNode(l1->val+l2->val);
+            l1=l1->next;
+            l2=l2->next;
+			ll->next=ln0;
+			ll=ln0;
+		}
+		//for(ll=rt;ll;ll=ll->next)   cout<<ll->val<<" "; cout<<endl;
+        
+		rt=reverseList(rt);// addtion due to >9 values 
+		for( ll=rt, i=0, ad=0; ll; ll=ll->next){
+			ll->val=ll->val+ad;
+			if(9<ll->val){
+				ll->val-=10;
+				ad=1;
+			}else{
+				ad=0;
+			}
+		}
+		rt=reverseList(rt);
+		
+		return rt->val!=0?rt:(rt->next?rt->next:rt);
+    }
+	
+protected:
+	ListNode * reverseList(ListNode * ln){
+		ListNode * ll=NULL, * lt;
+		for( ; ln; ll=ln, ln=lt){
+			lt=ln->next;
+			ln->next=ll;
+		}
+		return ll;
+	}
+
+	int listLength(ListNode* ln){
+		int len=0;
+		for( ; ln; ln=ln->next)	len++;
+		return len;
+	}
+};
+
+// Runtime: 28 ms, faster than 98.10% of C++ online submissions for Add Two Numbers II. 2018/12/23
+// Runtime: 62 ms	Your runtime beats 15.54 % of cpp submissions. a year ago
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
