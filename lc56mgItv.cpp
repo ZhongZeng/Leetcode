@@ -1,5 +1,3 @@
-
-
 /*
 Leetcode 56. Merge Intervals
 
@@ -12,12 +10,11 @@ Teemo Attacking, Add Bold Tag in String, Range Module
 Test Cases:
 [[1,3],[2,6],[8,10],[15,18]]
 [[1,3],[2,6],[8,10],[15,18],[18,19],[21,23]]
+[[0,2],[2,3],[4,4],[0,1],[5,7],[4,5],[0,0]]
+[[1,3],[2,6],[8,10],[15,18]]
+[[1,4],[2,3]]
 
-Runtime: 22 ms
-Your runtime beats 8.48 % of cpp submissions.
-Runtime: 26 ms
-Your runtime beats 7.01 % of cpp submissions.
-
+Runtime: 8 ms, faster than 99.25% of C++ online submissions for Merge Intervals.
 */
 
 
@@ -30,6 +27,39 @@ Your runtime beats 7.01 % of cpp submissions.
  *     Interval(int s, int e) : start(s), end(e) {}
  * };
  */
+class Solution {
+public:
+    vector<Interval> merge(vector<Interval>& intervals) {
+        // sort; O(n*log(n)) time, O(1) space, modify input 
+        int i, j, k;
+        
+        sort(intervals.begin(),intervals.end(),lessThan);
+        
+        for( i=0, j=0; j<intervals.size(); i++){
+            intervals[i]=intervals[j];
+            for( k=j+1; k<intervals.size(); k++){
+                if(intervals[i].end<intervals[k].start){
+                    break;
+                }else{
+                    if(intervals[i].end<intervals[k].end)
+                        intervals[i].end=intervals[k].end;
+                }
+            }
+            j=k;// j increase at least 1 
+        }
+        intervals.erase(intervals.begin()+i,intervals.end());
+        
+        return intervals;
+    }
+    
+    static bool lessThan(Interval& v1, Interval& v2){
+        return v1.start<v2.start;
+    }
+};
+
+// Runtime: 8 ms, faster than 99.25% of C++ online submissions for Merge Intervals. Run now
+// Runtime: 22 ms	Your runtime beats 8.48 % of cpp submissions. Run 1 year ago 
+// Runtime: 26 ms	Your runtime beats 7.01 % of cpp submissions.
 class Solution {
 public:
     vector<Interval> merge(vector<Interval>& intervals) {
