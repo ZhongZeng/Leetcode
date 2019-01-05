@@ -11,8 +11,7 @@ Clone Graph
 
 Next challenges: Encode and Decode TinyURL, Replace Words, Design HashSet
 
-Runtime: 32 ms
-Your runtime beats 48.60 % of cpp submissions.
+
 
 */
 
@@ -24,6 +23,53 @@ Your runtime beats 48.60 % of cpp submissions.
  *     RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
  * };
  */
+// Runtime: 64 ms, faster than 7.06% of C++ online submissions for Copy List with Random Pointer.
+// slower, probably b/c need to check whether in hash table each time
+class Solution {
+public:
+    RandomListNode *copyRandomList(RandomListNode *head) {
+        // O(n) time, one pass 
+		if(!head)	return head;
+        
+		unordered_map<RandomListNode*,RandomListNode*> um;
+		unordered_map<RandomListNode*,RandomListNode*>::iterator umi;		
+        RandomListNode *og=head, *th=new RandomListNode(og->label), *lt=th, *rd, *rt=th;// th,lt,rd: current,last,random node 
+		um.emplace( og, th);
+		if(og->random){
+			rd=new RandomListNode( og->random->label);
+			um.emplace( og->random, rd);
+			th->random=rd;
+		}
+		
+		for( og=og->next; og; og=og->next){
+			umi=um.find(og);
+			if(umi!=um.end()){
+				th=umi->second;
+			}else{
+				th=new RandomListNode(og->label);
+				um.emplace(og,th);
+			}
+			lt->next=th;
+            
+			if(og->random){
+				umi=um.find(og->random);
+				if(umi!=um.end()){
+					rd=umi->second;
+				}else{
+					rd=new RandomListNode(og->random->label);
+					um.emplace( og->random, rd);
+				}
+				th->random=rd;
+			}
+			
+			lt=th;
+		}
+		
+		return rt;
+    }
+};
+
+// Runtime: 32 ms	Your runtime beats 48.60 % of cpp submissions.
 class Solution {
 public:
     RandomListNode *copyRandomList(RandomListNode *head) {
