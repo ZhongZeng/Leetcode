@@ -20,6 +20,9 @@ Test Cases:
 Runtime: 6 ms
 Your runtime beats 18.89 % of cpp submissions.
 
+Let the correct answer be station at index t. If you start from any where at [0,t), 
+t-1 should make you negative. Thus, whenever you turn negative, you start over from the next node. 
+
 */
 
 class Solution {
