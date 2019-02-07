@@ -12,12 +12,18 @@ Test Cases:
 
 Runtime: 20 ms, faster than 93.33% of C++ online submissions for Most Stones Removed with Same Row or Column.
 
+A group of stones is defined as all stones that can be connected by rows or columns, which means each stone in the group is at least on the same row or column with another stone in the group. A group is essentially a connected graph. All stones in the same group are removable except the last one. Thus, the totoal number of stones remaining is the number of groups.
+We can do a DFS on each stone to count the total number groups. DFS is faster than Union Find, because the union step may take more than O(1) time.
+
+Time Complexity O(V+E):
+V: # stones/vertex; E: # edges b/t stones 
+
 */
 
 class Solution {
 public:
     int removeStones(vector<vector<int>>& stones) {
-        // DFS, O(n) time; Union Find is slower w.r.t time
+        // DFS, O(n^2) (actually O(V+E)) time; Union Find is slower w.r.t time 
 		// stones connected by row&column are connected graph, removable except 1
 		int gp=0;
 		vector<int> vc(stones.size(),-1);
