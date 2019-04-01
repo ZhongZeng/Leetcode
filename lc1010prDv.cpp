@@ -1,5 +1,5 @@
 /*
-1013. Pairs of Songs With Total Durations Divisible by 60
+1010. Pairs of Songs With Total Durations Divisible by 60
 
 Test Cases:
 [30,20,150,100,40]
