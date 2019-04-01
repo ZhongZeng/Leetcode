@@ -1,5 +1,5 @@
 /*
-1015. Numbers With Repeated Digits
+1012. Numbers With Repeated Digits
 
 Companies	Google
 Related Topics	Math, Dynamic Programming
