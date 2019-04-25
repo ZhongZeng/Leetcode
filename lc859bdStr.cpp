@@ -10,10 +10,41 @@ Test Cases:
 "abc"
 "abc"
 
-Runtime: 10 ms
+Next challenges: Text Justification, Palindrome Pairs, Output Contest Matches
 
 */
 
+// Runtime: 12 ms	Your runtime beats 27.53 % of cpp submissions.
+// Memory Usage: 9.1 MB
+class Solution {
+public:
+    bool buddyStrings(string A, string B) {
+		// O(n) time&space
+		if(A.size()!=B.size())	return false;
+        vector<int> vc;
+		for( int i=0; i<A.size(); i++){
+			if(A[i]!=B[i]){
+				if(vc.size()<2)	vc.push_back(i);
+				else	return false;
+			}
+		}
+		if(vc.size()==0){// A and B are the same 
+			unordered_set<char> us;
+			for( int i=0; i<A.size(); i++){
+				if(us.find(A[i])==us.end())	us.emplace(A[i]);
+				else	return true;
+			}
+			return false;
+		}else if(vc.size()==1){
+			return false;
+		}else if(vc.size()==2){// vc.size()<=2 guranteed 
+			return A[vc[0]]==B[vc[1]]&&A[vc[1]]==B[vc[0]];// swap 
+		}
+		return true;// won't be triggered
+    }
+};
+
+// Runtime: 10 ms
 class Solution {
 public:
     bool buddyStrings(string A, string B) {
