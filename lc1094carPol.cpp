@@ -11,6 +11,8 @@ Test Cases:
 [[3,2,7],[3,7,9],[8,3,9]]
 11
 
+Next challenges: Design Circular Deque, Sum of Subarray Minimums, Campus Bikes II
+
 Runtime: 12 ms
 Memory Usage: 10.2 MB
 
