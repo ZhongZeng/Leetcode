@@ -14,7 +14,7 @@ Memory Usage: 9 MB
 class Solution {
 public:
     vector<double> sampleStats(vector<int>& count) {
-        // minimum, maximum, mean, median, mode; [0,255]
+        // O(n) time; minimum, maximum, mean, median, mode; [0,255]
         int i, cc, ct=0, mst=0;
         double mean=0.0;
         vector<double> rt;
