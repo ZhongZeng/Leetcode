@@ -12,7 +12,10 @@ Test Cases:
 [1,2,3,null,null,null,4]
 [2,1]
 
-Runtime: 20 ms
+Next challenges: Serialize and Deserialize BST, 
+Freedom Trail, Lexicographically Smallest Equivalent String
+
+Runtime: 20 ms	Your runtime beats 92.73 % of cpp submissions.
 Memory Usage: 19.1 MB
 */
 

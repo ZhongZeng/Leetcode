@@ -7,7 +7,10 @@ Rank	Name	Score	Finish Time 	Q1 (1)	Q2 (4)	Q3 (6)	Q4 (6)
 
 Tag: String (suggested)
 
-Runtime: 4 ms
+Next challenges: Repeated Substring Pattern, 
+Orderly Queue, Smallest Subsequence of Distinct Characters
+
+Runtime: 4 ms	Your runtime beats 76.59 % of cpp submissions.
 Memory Usage: 8.3 MB
 */
 
