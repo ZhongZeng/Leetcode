@@ -19,7 +19,6 @@ Test Cases:
 
 Runtime: 0 ms
 Memory Usage: 8.3 MB
-
 */
 
 class Solution {
