@@ -16,6 +16,7 @@ Runtime: 4 ms	Your runtime beats 87.66 % of cpp submissions.
 Memory Usage: 8.5 MB
 
 Next challenges: 3Sum Smaller, Subarray Product Less Than K
+Next challenges: Word Ladder II, Transform to Chessboard, Height Checker
 */
 
 class Solution {
