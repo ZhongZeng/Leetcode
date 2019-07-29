@@ -14,6 +14,7 @@ class Solution {
 public:
     int largest1BorderedSquare(vector<vector<int>>& grid) {
         // O(n^3) time, similiar to range sum; brute force O(n^4) time
+		// Record the number of 1s from 0-index to current position in each row and each column. 
         if(grid.size()==0||grid[0].size()<0)    return 0;
         int rt=0;
         vector<int> r(grid[0].size()+1,0);
