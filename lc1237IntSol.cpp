@@ -1,11 +1,18 @@
 /*
 1237. Find Positive Integer Solution for a Given Equation
 
+Companies	Google
+Related Topics	Math, Binary Search 
+
 Test Cases:
 1
 5
 2
 5
+
+Runtime: 4 ms
+Memory Usage: 8.4 MB
+Your runtime beats 78.59 % of cpp submissions.
 */
 /*
  * // This is the custom function interface.
