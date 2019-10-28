@@ -1,6 +1,10 @@
 /*
 1237. Find Positive Integer Solution for a Given Equation
 
+Ranking of Weekly Contest 160  
+Rank	Name	Score	Finish Time 	Q1 (3)	Q2 (5)	Q3 (5)	Q4 (7)
+2772 / 6128	zhongzeng 	3	0:24:42	 0:24:42	
+
 Companies	Google
 Related Topics	Math, Binary Search 
 
