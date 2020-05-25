@@ -46,3 +46,41 @@ public:
         return rt;
     }
 };
+
+/*
+Runtime: 0 ms, faster than 100.00% of C++ online submissions for Construct Binary Search Tree from Preorder Traversal.
+Memory Usage: 10 MB, less than 95.24% of C++ online submissions for Construct Binary Search Tree from Preorder Traversal.
+Next challenges: Closest Binary Search Tree Value II, Longest ZigZag Path in a Binary Tree, 
+Count Good Nodes in Binary Tree
+*/
+class Solution {
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        // pre-order DFS, BST; O(3*n) time
+		if(preorder.size()<1)	return NULL;
+		TreeNode * root=new TreeNode(preorder[0]);
+		vector<TreeNode*> nodes={root};// nodes w/t right child && in same path to root
+		dfs( preorder, 1, nodes);
+		return root;
+    }
+	
+protected:
+	void dfs( vector<int> & preorder, int pos, vector<TreeNode*> nodes ){
+		if(!(pos<preorder.size()))	return ;
+		
+		TreeNode * tr=new TreeNode(preorder[pos]);
+		if(preorder[pos]<nodes.back()->val){
+			nodes.back()->left=tr;
+		}else{
+			// find tr b/t nodes[-1] and nodes[-2]
+			while(1<nodes.size()&&nodes[nodes.size()-2]->val<preorder[pos])	nodes.pop_back();
+			nodes.back()->right=tr;
+			nodes.pop_back();// only save node w/t left child
+		}
+		nodes.push_back(tr);
+		
+		dfs( preorder, pos+1, nodes);
+		
+		return ;
+	}
+};
