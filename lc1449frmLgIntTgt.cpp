@@ -21,7 +21,7 @@ https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-ta
 class Solution {
 public:
     string largestNumber(vector<int>& cost, int target) {
-        // Dynamic Programming, Greedy; Knapsack problem; O(10*target) time&space; target&cost in [1,5000]
+        // Dynamic Programming, Greedy, BFS; Knapsack problem; O(10*target) time&space; target&cost in [1,5000]
         // we can think we have 0-8 while 0 can be leading digit
         string num;
         vector<char> ch={'1','2','3','4','5','6','7','8','9'};
