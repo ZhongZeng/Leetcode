@@ -1,10 +1,18 @@
 /*
 1063. Number of Valid Subarrays
 
+Companies	Hulu
+Related Topics	Stack
+
 Runtime: 176 ms, faster than 35.00% of C++ online submissions for Number of Valid Subarrays.
 Memory Usage: 43.3 MB, less than 20.00% of C++ online submissions for Number of Valid Subarrays.
 Next challenges: Closest Binary Search Tree Value II, Decoded String at Index,
 Remove All Adjacent Duplicates in String II
+
+Test Cases:
+[1,4,2,5,3]
+[3,2,1]
+[2,2,2]
 */
 
 class Solution {
