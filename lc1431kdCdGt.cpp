@@ -4,6 +4,10 @@
 Easy
 Related Topics	Array
 
+Test Cases:
+[2,3,5,1,3]
+3
+
 Runtime: 4 ms, faster than 87.66% of C++ online submissions for Kids With the Greatest Number of Candies.
 Memory Usage: 8.9 MB, less than 100.00% of C++ online submissions for Kids With the Greatest Number of Candies.
 Next challenges: Sum of Subsequence Widths, Reverse Subarray To Maximize Array Value,
