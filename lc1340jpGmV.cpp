@@ -22,6 +22,11 @@ Memory Usage: 14.9 MB, less than 73.77% of C++ online submissions for Jump Game 
 Next challenges: Dungeon Game, Handshakes That Don't Cross, Longest Common Subsequence
 */
 
+/*
+Every element i can only be visited from j in [i-d, i) (i, i+d], where arr[i]<arr[j]. 
+This is a Directed Acyclic Graph with n nodes and n*2*d edges. 
+Thus, O(n*d) time . 
+*/
 class Solution {
 public:
     int maxJumps(vector<int>& arr, int d) {
