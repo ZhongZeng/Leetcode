@@ -25,6 +25,10 @@ Runtime: 380 ms, faster than 100.00% of C++ online submissions for Make Sum Divi
 Memory Usage: 67.7 MB, less than 66.67% of C++ online submissions for Make Sum Divisible by P.
 Next challenges: Reverse Pairs,
 Previous Permutation With One Swap, Decompress Run-Length Encoded List
+Next challenges: Max Sum of Rectangle No Larger Than K,
+Online Majority Element In Subarray, Max Value of Equation
+
+https://leetcode.com/problems/make-sum-divisible-by-p/discuss/857290/C++-O(n)-Time-Prefix-Beats-100-Time
 */
 
 class Solution {
